@@ -2,11 +2,11 @@
   "name": "foodapp",
   "version": "1.0.0",
   "description": "foodapp backend",
-  "main": "server.js",
+  "main": "all/server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "server": "nodemon server.js",
+    "start": "node all/server/server.js",
+    "server": "nodemon all/server/server.js",
     "client": "npm start --prefix ../client",
     "dev": " concurrently \"npm run server\" \"npm run client\" ",
     "data:import": "node seeder.js"
