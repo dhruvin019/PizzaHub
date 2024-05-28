@@ -4,9 +4,10 @@ const express = require('express');
 const dotenv = require('dotenv');
 const Razorpay = require('razorpay');
 const connectDB = require("./config/config");
-require("colors");
+const cors = require('cors'); // Import the cors package
 const morgan = require('morgan');
 const fileUpload = require('express-fileupload');
+require("colors");
 
 dotenv.config()
 
@@ -15,6 +16,7 @@ connectDB();
 const app = express();
 
 // middleware
+app.use(cors()); 
 app.use(morgan('dev'));
 app.use(express.json());
 
@@ -38,7 +40,6 @@ const instance = new Razorpay({
 // routes
 app.use("/api/pizzas",require("./routes/pizzaRoute"));
 app.use("/api/users",require("./routes/userRoute"));
-app.use("/api/orders",require("./routes/orderRoute"));
 app.use("/api/payment",require("./routes/paymentroute"));
 
 app.get("/",(req, res) => {

@@ -183,7 +183,7 @@ const UpdatePizza = () => {
   useEffect(() => {
     const getpizza = async () => {
         try {
-            const { data } = await axios.get(`/api/pizzas/getPizzabyId/${pizzaid}`);
+            const { data } = await axios.get(`https://pizzahub-backend.onrender.com/api/pizzas/getPizzabyId/${pizzaid}`);
             console.log(data);
           
             setName(data.name);
@@ -215,7 +215,7 @@ const UpdatePizza = () => {
       formData.append("category", category);
       formData.append("description", description);
       
-      const { data } = await axios.put(`/api/pizzas/updatePizza/${pizzaid}`, formData);
+      const { data } = await axios.put(`https://pizzahub-backend.onrender.com/api/pizzas/updatePizza/${pizzaid}`, formData);
       if (data) {
         navigate("/admin/allpizza");
       }

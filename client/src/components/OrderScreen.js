@@ -14,7 +14,7 @@ const OrderScreen = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get('/api/payment/orders', { params: { useremail } });
+        const response = await axios.get('https://pizzahub-backend.onrender.com/api/payment/orders', { params: { useremail } });
         setAllOrders(response.data);
       } catch (error) {
         console.error('Error fetching orders:', error);

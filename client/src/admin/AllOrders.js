@@ -8,7 +8,7 @@ const AllOrders = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get('/api/payment/allorders');
+        const response = await axios.get('https://pizzahub-backend.onrender.com/api/payment/allorders');
         setAllOrders(response.data);
       
       } catch (error) {

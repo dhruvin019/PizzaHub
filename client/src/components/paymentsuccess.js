@@ -60,7 +60,7 @@ const PaymentSuccess = () => {
       // console.log(cartItemsdetail);
 
       try {
-        const res = await axios.post("/api/payment/paymentsave", {
+        const res = await axios.post("https://pizzahub-backend.onrender.com/api/payment/paymentsave", {
           payment_id,
           order_id,
           cartItemsdetail,

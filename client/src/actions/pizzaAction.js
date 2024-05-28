@@ -3,7 +3,7 @@ import axios from "axios";
 export const getAllPizzas = () => async (dispatch) => {
   
   try {
-    const response = await axios.get("/api/pizzas/getAllPizzas");
+    const response = await axios.get("https://pizzahub-backend.onrender.com/api/pizzas/getAllPizzas");
     dispatch({ type: "GET_PIZZAS_SUCCESS", payload: response.data });
     // console.log("success");
 
@@ -15,7 +15,7 @@ export const getAllPizzas = () => async (dispatch) => {
 
 export const deletePizza = (pizzaId) => async (dispatch) => {
   try {
-    await axios.delete(`/api/pizzas/deletepizza/${pizzaId}`);
+    await axios.delete(`https://pizzahub-backend.onrender.com/api/pizzas/deletepizza/${pizzaId}`);
 
     dispatch(getAllPizzas());
   } catch (error) {
@@ -27,7 +27,7 @@ export const deletePizza = (pizzaId) => async (dispatch) => {
 export const addPizza = (pizza) => async (dispatch) => {
   dispatch({ type: "ADD_PIZZAS_REQUEST" });
   try {
-    await axios.post("/api/pizzas/addpizza", pizza);
+    await axios.post("https://pizzahub-backend.onrender.com/api/pizzas/addpizza", pizza);
     // Dispatch success action if the request is successful
     dispatch({ type: "ADD_PIZZA_SUCCESS" });
   } catch (error) {

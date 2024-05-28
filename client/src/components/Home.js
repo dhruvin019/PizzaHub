@@ -61,7 +61,8 @@ const Home = () => {
   useEffect(() => {
     const getAllPizzas = async () => {
       try {
-        const { data } = await axios.get("/api/pizzas/getAllPizzas");
+        const { data } = await axios.get("https://pizzahub-backend.onrender.com/api/pizzas/getAllPizzas");
+        console.log(data);
         setPizzas(data);
         console.log(pizzas);
 

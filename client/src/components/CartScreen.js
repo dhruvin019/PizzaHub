@@ -4,7 +4,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { FaMinusCircle, FaPlusCircle, FaTrash } from "react-icons/fa";
 import { addToCart, deleteFromCart } from "../actions/cartActions";
-import Checkout from "./Checkout";
+
 import { checkoutHandler } from "../actions/paymentAction"; 
 
 

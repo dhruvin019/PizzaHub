@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { getAllPizzaReducer } from "./reducers/pizzaReducer";
 import { registerUserReducer, loginUserReducer, getAllUsersReducer } from "./reducers/userReducer";
 import { cartReducer } from "./reducers/cartReducer";
-import { getUserOrdersReducer, placeOrderReducer } from "./reducers/orderReducer";
+// import { getUserOrdersReducer, placeOrderReducer } from "./reducers/orderReducer";
 import { checkoutReducer } from "./reducers/paymentReducer";
 
 const cartItems = localStorage.getItem("cartItems")
@@ -18,8 +18,8 @@ const rootReducer = {
   cartReducer: cartReducer,
   registerUserReducer: registerUserReducer,
   loginUserReducer: loginUserReducer,
-  placeOrderReducer: placeOrderReducer,
-  getUserOrdersReducer: getUserOrdersReducer,
+  // placeOrderReducer: placeOrderReducer,
+  // getUserOrdersReducer: getUserOrdersReducer,
   getAllUsersReducer: getAllUsersReducer,
   paymentReducer:checkoutReducer,
 };

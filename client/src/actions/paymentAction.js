@@ -2,10 +2,10 @@ import axios from "axios";
 export const checkoutHandler = (subTotal) => async (dispatch, getState) => {
   try{
 
-    const {data:{order}} =await axios.post("/api/payment/checkout",{subTotal});
+    const {data:{order}} =await axios.post("https://pizzahub-backend.onrender.com/api/payment/checkout",{subTotal});
    
 
-    const {data:{key}} =await axios.get("/api/payment/getkey");
+    const {data:{key}} =await axios.get("https://pizzahub-backend.onrender.com/api/payment/getkey");
     // console.log({order});
 
     const options = {
@@ -16,7 +16,7 @@ export const checkoutHandler = (subTotal) => async (dispatch, getState) => {
       description: "Test Transaction",
       // image: "https://example.com/your_logo",
       order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the previous step
-      callback_url:"http://localhost:3000/api/payment/paymentverification",
+      callback_url:"https://pizzahub-backend.onrender.com/api/payment/paymentverification",
       
 
       prefill: {
