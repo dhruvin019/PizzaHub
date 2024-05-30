@@ -52,20 +52,25 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Container, Row, Col } from 'react-bootstrap';
 import Pizza from './Pizza';
+import Spinner from "./Spinner";
 
 
 const Home = () => {
   const [pizzas, setPizzas] = useState([]);
+  const [loading,setLoading] = useState(false);
 
   // Fetch pizzas
   useEffect(() => {
     const getAllPizzas = async () => {
+      setLoading(true);
       try {
         const { data } = await axios.get("https://pizzahub-backend.onrender.com/api/pizzas/getAllPizzas");
-        console.log(data);
-        setPizzas(data);
-        console.log(pizzas);
 
+        // console.log(data);
+        setPizzas(data);
+        // console.log(pizzas);
+
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching pizzas:", error);
       }
@@ -78,14 +83,15 @@ const Home = () => {
 
   return (
     <Container>
-      <Row>
-        {pizzas.map((pizza) => (
+    {
+      loading ? <Spinner/> : 
+      <Row> {pizzas.map((pizza) => (
           <Col md={4} key={pizza.name}>
             <Pizza pizza={pizza} />
           </Col>
         ))}
       </Row>
-      {/* <h1>Home Page</h1> */}
+    } 
     </Container>
   );
 };

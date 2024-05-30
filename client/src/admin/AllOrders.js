@@ -10,7 +10,6 @@ const AllOrders = () => {
       try {
         const response = await axios.get('https://pizzahub-backend.onrender.com/api/payment/allorders');
         setAllOrders(response.data);
-      
       } catch (error) {
         console.error('Error fetching orders:', error);
       }
