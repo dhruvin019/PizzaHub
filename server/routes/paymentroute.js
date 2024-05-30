@@ -88,7 +88,11 @@ router.get('/allorders',async (req, res)=>{
   try{
     const orders = await Payment.find({});
     res.status(200).send(orders);
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 1b0efb8fe420e08ef0de685f2d1e323e0ea755db
   }
   catch(error) {
     res.status(400).json({
